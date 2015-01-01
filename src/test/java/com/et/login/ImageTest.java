@@ -22,5 +22,7 @@ public class ImageTest extends TestCase {
 		System.out.println("处理后的标题："+maxtitle);
 		System.out.println("================================");
 		System.out.println("处理后的标题："+imageUtil.removeTitle("广州在线_休息嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻"));
+		System.out.println("---------------------------------------------");
+		System.out.println("sssssssss:"+imageUtil.removeChar("休息嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻_广州在线"));
 	}
 }
