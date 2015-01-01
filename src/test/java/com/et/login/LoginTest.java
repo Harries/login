@@ -51,17 +51,39 @@ public class LoginTest
 			formparams.add(new BasicNameValuePair("FORM_HASH", "e29607b23783b676"));
 			String loginurl ="http://twcms.meiyear.com/admin/index.php?u=index-login";
 			HashMap<String,String>  map =loginUtil.login(formparams,loginurl);
-			//发布文章操作
-			String publishurl ="发布文章地址";
-			List<NameValuePair> formparams2 = new ArrayList<NameValuePair>();
-			formparams.add(new BasicNameValuePair("title", "标题"));
-			formparams.add(new BasicNameValuePair("content", "内容"));
-			formparams.add(new BasicNameValuePair("author", "作者"));
+			
+			
+			String publishurl ="http://twcms.meiyear.com/admin/index.php?u=article-add-ajax-1";
 			String Cookie=map.get("Cookie");
-			loginUtil.publishArticle(formparams2, publishurl, Cookie);
+			
+			//发布文章操作
+			List<NameValuePair> publishparam = new ArrayList<NameValuePair>();
+			publishparam.add(new BasicNameValuePair("id", ""));
+			publishparam.add(new BasicNameValuePair("color", ""));
+			publishparam.add(new BasicNameValuePair("seo_title", ""));
+			publishparam.add(new BasicNameValuePair("cid", "1"));
+			publishparam.add(new BasicNameValuePair("title", "111111111111"));
+			publishparam.add(new BasicNameValuePair("content", "2222222222"));
+			publishparam.add(new BasicNameValuePair("alias", ""));
+			publishparam.add(new BasicNameValuePair("tags", ""));
+			publishparam.add(new BasicNameValuePair("intro", ""));
+			publishparam.add(new BasicNameValuePair("pic", ""));
+			publishparam.add(new BasicNameValuePair("source", ""));
+			publishparam.add(new BasicNameValuePair("views", "0"));
+			publishparam.add(new BasicNameValuePair("seo_keywords", ""));
+			publishparam.add(new BasicNameValuePair("seo_description", ""));
+			publishparam.add(new BasicNameValuePair("author", "dingyangfan"));
+			
+		
+			for(int i=0;i<10000;i++){
+				  Thread.sleep(5000);
+				loginUtil.publishArticle(publishparam, publishurl, Cookie);
+			}
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
     }
