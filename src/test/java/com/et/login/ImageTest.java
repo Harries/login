@@ -8,7 +8,7 @@ public class ImageTest extends TestCase {
 	 */
 	public  void testImage(){
 		ImageUtil   imageUtil =  new  ImageUtil();
-		String html = "<html><head><title>First parse</title></head><body> <img src=\"project.png\"> 开源软件 </img><p>Parsed HTML into a doc.</p><img src=\"/sss.jpg\"></body></html>";
+		String html = "<html><head><title>First parse</title></head><body> <img src=\"http://www.baidu.comss/project.png\"> 开源软件 </img><p>Parsed HTML into a doc.</p><img src=\"../image/sss.jpg\"></body></html>";
 		String url="http://www.baidu.com";
 		String html_content =imageUtil.replaceSRC(html, url);
 	}
