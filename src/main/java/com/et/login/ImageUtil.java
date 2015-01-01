@@ -27,7 +27,7 @@ public class ImageUtil {
 		Elements links = doc.getElementsByTag("img");
 		for (Element link : links) {
 			String linkHref = link.attr("src");
-			if(linkHref.contains("http")||linkHref.contains("https")){
+			if(linkHref.contains("http")||linkHref.contains("https")||linkHref.contains("data-img")){
 				System.out.println("不替换地址");
 			}else{
 				if(linkHref.contains("/")){
@@ -37,8 +37,8 @@ public class ImageUtil {
 				}
 			}
 		}
-		System.out.println(doc.toString());
-		return doc.toString();
+		System.out.println(doc.getElementsByTag("body").toString());
+		return doc.getElementsByTag("body").html();
 	}
 
 	/**

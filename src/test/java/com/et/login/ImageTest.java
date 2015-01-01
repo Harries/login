@@ -9,8 +9,33 @@ public class ImageTest extends TestCase {
 	public  void testImage(){
 		ImageUtil   imageUtil =  new  ImageUtil();
 		String html = "<html><head><title>First parse</title></head><body> <img src=\"http://www.baidu.comss/project.png\"> 开源软件 </img><p>Parsed HTML into a doc.</p><img src=\"../image/sss.jpg\"></body></html>";
-		String url="http://www.baidu.com";
+		String url="http://www.baidu.com/1.html";
 		String html_content =imageUtil.replaceSRC(html, url);
+		ImageUtil testconten= new ImageUtil();
+		testconten.replaceSRC("<img src='/test.jpg'>", "http://www.baidu.com/sdfsdf/a.html");
+		testconten.replaceSRC("<img src='/test.jpg'>", "http://www.baidu.com/sdfsdf/");
+		testconten.replaceSRC("<img src='/test.jpg'>", "http://www.baidu.com/sdfsdf");
+		testconten.replaceSRC("<img src='/test.jpg'>", "http://www.baidu.com/sdfsdf.asp?aaa=3");
+		
+		testconten.replaceSRC("<img src='../test.jpg'>", "http://www.baidu.com/sdfsdf/a.html");
+		testconten.replaceSRC("<img src='../test.jpg'>", "http://www.baidu.com/sdfsdf/");
+		testconten.replaceSRC("<img src='../test.jpg'>", "http://www.baidu.com/sdfsdf");
+		testconten.replaceSRC("<img src='../test.jpg'>", "http://www.baidu.com/sdfsdf.asp?aaa=3");	
+		
+		testconten.replaceSRC("<img src='./test.jpg'>", "http://www.baidu.com/sdfsdf/a.html");
+		testconten.replaceSRC("<img src='./test.jpg'>", "http://www.baidu.com/sdfsdf/");
+		testconten.replaceSRC("<img src='./test.jpg'>", "http://www.baidu.com/sdfsdf");
+		testconten.replaceSRC("<img src='./test.jpg'>", "http://www.baidu.com/sdfsdf.asp?aaa=3");	
+		
+		testconten.replaceSRC("<img src='http://ww.baidu.com/sss/test.jpg'>", "http://www.baidu.com/sdfsdf/a.html");
+		testconten.replaceSRC("<img src='http://ww.baidu.com/sss/test.jpg'>", "http://www.baidu.com/sdfsdf/");
+		testconten.replaceSRC("<img src='http://ww.baidu.com/sss/test.jpg'>", "http://www.baidu.com/sdfsdf");
+		testconten.replaceSRC("<img src='http://ww.baidu.com/sss/test.jpg'>", "http://www.baidu.com/sdfsdf.asp?aaa=3");		
+		
+		testconten.replaceSRC("<img src='data-img:sdkfjsduf'>", "http://www.baidu.com/sdfsdf/a.html");
+		testconten.replaceSRC("<img src='data-img:sdkfjsduf'>", "http://www.baidu.com/sdfsdf/");
+		testconten.replaceSRC("<img src='data-img:sdkfjsduf'>", "http://www.baidu.com/sdfsdf");
+		testconten.replaceSRC("<img src='data-img:sdkfjsduf'>", "http://www.baidu.com/sdfsdf.asp?aaa=3");	
 	}
 	/**
 	 * 去除标题中的来源
