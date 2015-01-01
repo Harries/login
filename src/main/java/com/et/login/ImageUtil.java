@@ -37,7 +37,7 @@ public class ImageUtil {
 				}
 			}
 		}
-		System.out.println(doc.getElementsByTag("body").toString());
+		System.out.println(doc.getElementsByTag("body").html());
 		return doc.getElementsByTag("body").html();
 	}
 
