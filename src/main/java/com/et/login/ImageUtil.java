@@ -19,6 +19,10 @@ public class ImageUtil {
 	 * @param url
 	 */
 	public String replaceSRC(String html, String url) {
+		String url_new =url;
+		if(url.contains("/")){
+			url_new =url.substring(0,url.lastIndexOf("/"));
+		}
 		Document doc = Jsoup.parse(html);
 		Elements links = doc.getElementsByTag("img");
 		for (Element link : links) {
@@ -27,9 +31,9 @@ public class ImageUtil {
 				System.out.println("不替换地址");
 			}else{
 				if(linkHref.contains("/")){
-					link.attr("src", url + "/" + linkHref.substring(linkHref.indexOf("/"),linkHref.length()));
+					link.attr("src", url_new + "/" + linkHref.substring(linkHref.indexOf("/"),linkHref.length()));
 				}else{
-					link.attr("src", url + "/" + linkHref);
+					link.attr("src", url_new + "/" + linkHref);
 				}
 			}
 		}
