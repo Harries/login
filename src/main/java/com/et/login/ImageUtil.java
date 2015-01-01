@@ -23,7 +23,15 @@ public class ImageUtil {
 		Elements links = doc.getElementsByTag("img");
 		for (Element link : links) {
 			String linkHref = link.attr("src");
-			link.attr("src", url + "/" + linkHref);
+			if(linkHref.contains("http")||linkHref.contains("https")){
+				System.out.println("不替换地址");
+			}else{
+				if(linkHref.contains("/")){
+					link.attr("src", url + "/" + linkHref.substring(linkHref.indexOf("/"),linkHref.length()));
+				}else{
+					link.attr("src", url + "/" + linkHref);
+				}
+			}
 		}
 		System.out.println(doc.toString());
 		return doc.toString();
